@@ -3,7 +3,11 @@ from sqlalchemy.orm import relationship
 from models.model_global import Base
 
 
-class User(Base):
-    __tablename__ = "test"
+class Register(Base):
+    __tablename__ = "register"
     id = Column(Integer, primary_key=True, index=True)
-    content = Column(String)
+    name = Column(String)
+    password = Column(String)
+    email = Column(String)
+    sex = Column(String)
+    country = Column(String)
