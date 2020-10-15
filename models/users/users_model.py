@@ -1,6 +1,6 @@
 from sqlalchemy import Column, SmallInteger, String, Date, Integer, Text
 from sqlalchemy.orm import relationship
-from models.model_global import Base
+from config.model_global import Base
 
 
 class User(Base):

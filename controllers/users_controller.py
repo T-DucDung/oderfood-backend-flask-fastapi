@@ -1,14 +1,13 @@
 from typing import List
 from fastapi import APIRouter ,Depends, HTTPException
 from services.userservices import user_services
-from models import users_model , users_schema
+from models.users import users_schema
 from sqlalchemy.orm import Session
-from models.model_global import SessionLocal ,engine
+from config.model_global import SessionLocal ,engine
 
 router = APIRouter()
 
 # users_model.Base.metadata.create_all(bind=engine)
-
 def get_db():
     db = SessionLocal()
     try:

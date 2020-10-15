@@ -1,7 +1,7 @@
 import mysql
 import sys
 
-from model_global import get_mysql_connection
+from ..config.model_global import get_mysql_connection
 
 
 def execute_select_first_value(select_query: str):

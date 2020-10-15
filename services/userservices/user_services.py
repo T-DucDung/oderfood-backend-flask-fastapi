@@ -1,6 +1,6 @@
 
 from sqlalchemy.orm import Session
-from models import users_model , users_schema
+from models.users import users_model , users_schema
 
 
 def get_user(db: Session, user_id: int):

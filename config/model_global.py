@@ -10,9 +10,9 @@ from sqlalchemy.orm import sessionmaker
 app = FastAPI()
 
 MYSQL_HOST = 'localhost'
-MYSQL_NAME = 'test'
+MYSQL_NAME = 'orderfood'
 MYSQL_USER = 'root'
-MYSQL_PASSWORD = 'Nguyenvanvu17150217'
+MYSQL_PASSWORD = 'laduc123'
 
 
 SQLALCHEMY_DATABASE_URL = "mysql+pymysql://{DB_USER}:{DB_PASS}@{DB_ADDR}/{DB_NAME}".format(

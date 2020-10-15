@@ -1,6 +1,6 @@
 
 from sqlalchemy.orm import Session
-from models import register_model , register_schema
+from models.register import register_model , register_schema
 
 
 def get_register(db: Session, register_id: int):
