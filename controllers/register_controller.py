@@ -4,7 +4,7 @@ from services.registerservice import register_service
 from models.register import register_model,register_schema
 from sqlalchemy.orm import Session
 from config.model_global import SessionLocal ,engine
-from policies.customer import customer
+from flask import g
 router = APIRouter()
 
 # users_model.Base.metadata.create_all(bind=engine)
@@ -17,8 +17,7 @@ def get_db():
         db.close()
 
 
-@router.get("/registers/", response_model=List[register_schema.Register])
-@customer
+@router.get("/registers/" ,response_model=List[register_schema.Register])
 async def read_registers(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     registers = register_service.get_registers(db, skip=skip, limit=limit)
     return registers

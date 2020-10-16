@@ -1,23 +1,33 @@
-
-from flask import request, Response , jsonify, g
-from helpers.jwt_tool import  verify
-from helpers.jwt_tool import sign
-from functools import wraps
-def customer(f):
-   @wraps(f)
-   def decorator(*args, **kwargs):
+from starlette.middleware.base import BaseHTTPMiddleware
+from helpers.jwt_tool import sign, verify
+from starlette.responses import JSONResponse,Response
+from starlette.requests import Request
+from flask import g
+class CustomerMiddleware(BaseHTTPMiddleware):
+ async def dispatch(self, request, call_next):
+    
+    try:
         
-        try:
-            print("ok")
-            auth = request.headers['Authorization']
-            token = auth.split(" ")
-            # print(token[0])
-            if(token[0] != "Bearer"):
-                return jsonify({'message': 'a valid token is missing', "code":403})
-            data = verify(token[1])
-            g.data = data
-        except:
-            return jsonify({'message': 'a valid token is missing', "code":403})
+        # print(sign())
+        auth = request.headers['Authorization']
+        token = auth.split(" ")
+        # print(token)
+        if(token[0]!="Bearer"):
+            return JSONResponse(
+                {'detail':'Not auth'}
+             )
+            #  return Response({'detail':'Not auth'},status_code=401)
+        # print("OK")
+        data = verify(token[1])
+        request.state.user = data
 
-        return f(*args, **kwargs)
-   return decorator
+        response = await call_next(request)
+        return response
+    except:
+        return JSONResponse(
+                {'detail':'Not auth'}
+        )
+    
+
+
+

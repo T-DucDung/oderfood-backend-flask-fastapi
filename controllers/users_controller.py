@@ -1,9 +1,11 @@
 from typing import List
-from fastapi import APIRouter ,Depends, HTTPException
+from fastapi import APIRouter ,Depends, HTTPException, Request
 from services.userservices import user_services
 from models.users import users_schema
 from sqlalchemy.orm import Session
 from config.model_global import SessionLocal ,engine
+
+# from config.routes import CustomAPIRouter
 
 router = APIRouter()
 
@@ -16,10 +18,15 @@ def get_db():
         db.close()
 
 
-@router.get("/users/", response_model=List[users_schema.User])
+@router.get("/users/" ,response_model=List[users_schema.User])
 async def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = user_services.get_users(db, skip=skip, limit=limit)
     return users
+
+@router.get("/abc")
+async def home(request: Request):
+    print(request.state.user)
+    return request.headers
 
 
 @router.get("/users/{user_id}", response_model=users_schema.User)

@@ -4,6 +4,6 @@ from config.model_global import Base
 
 
 class User(Base):
-    __tablename__ = "test"
-    id = Column(Integer, primary_key=True, index=True)
-    content = Column(String)
+    __tablename__ = "USER"
+    user_id = Column(Integer, primary_key=True, index=True)
+    user_name = Column(String)
