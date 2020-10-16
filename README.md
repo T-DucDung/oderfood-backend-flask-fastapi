@@ -13,5 +13,7 @@ Hướng dẫn chạy :
 trong đó :
 
 server: là file server.py (the Python "module")
+
 app: là cái này app = FastAPI()
+
 --reload: là để app tự reload
