@@ -17,3 +17,5 @@ server: là file server.py (the Python "module")
 app: là cái này app = FastAPI()
 
 --reload: là để app tự reload
+
+Link mặc định swwagger thêm `/docs` để chạy
