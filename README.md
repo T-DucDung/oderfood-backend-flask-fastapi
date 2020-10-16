@@ -18,4 +18,4 @@ app: là cái này app = FastAPI()
 
 --reload: là để app tự reload
 
-Link mặc định swwagger thêm `/docs` để chạy
+Link mặc định swagger thêm `/docs` để chạy
