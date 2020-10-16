@@ -12,6 +12,6 @@ Hướng dẫn chạy :
 
 trong đó :
 
-server: the file server.py (the Python "module").
-app: the object created inside of main.py with the line app = FastAPI().
---reload: make the server restart after code changes. Only do this for development.
+server: là file server.py (the Python "module")
+app: là cái này app = FastAPI()
+--reload: là để app tự reload
