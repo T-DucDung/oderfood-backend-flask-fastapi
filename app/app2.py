@@ -1,2 +1,2 @@
-from fastapi import FastAPI
-app2 = FastAPI(root_path="/api/v2")
+    # from fastapi import FastAPI
+    # app2 = FastAPI(root_path="/api/v2")

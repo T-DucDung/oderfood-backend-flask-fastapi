@@ -18,7 +18,7 @@ def get_db():
         db.close()
 
 
-@router.post("/api/v1/test")
+@router.post("/api/test")
 async def create_user(request: Request):
     print("A")
     return "A"

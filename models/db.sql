@@ -78,3 +78,43 @@ create table admin(
     username varchar(255)
     primary key(admin_id)
 )
+create table adminrole(
+    admin_id int,
+    role_id int,
+    created_date bigint, 
+    updated_date bigint,
+    primary key(admin_id),
+    primary key(role_id)
+)
+create table role(
+    created_date bigint, 
+    updated_date bigint,
+    role_id int,
+    name varchar(255),
+    primary key(role_id)
+)
+create table rolepage(
+    created_date bigint, 
+    updated_date bigint,
+    page_id int,
+    role_id int,
+    primary key(page_id)
+    primary key(role_id)
+)
+create table page(
+    created_date bigint, 
+    updated_date bigint,
+    page_id int,
+    name varchar(255),
+    primary key(page_id)
+)
+
+create table menu(
+    created_date bigint, 
+    updated_date bigint,
+    menu_id int,
+    name varchar(255),
+    page_id int,
+    is_parent tinyint
+    primary key(menu_id)
+)
